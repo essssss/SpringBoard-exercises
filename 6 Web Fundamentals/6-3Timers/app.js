@@ -41,5 +41,7 @@ function makeMultiplyFunc(num){
 // eg: const quad = makeMultiplyFunc(4);
 
 
-greet();
-// setInterval(diss, 3000);
+// greet();
+// const id = setInterval(diss, 3000);
+
+

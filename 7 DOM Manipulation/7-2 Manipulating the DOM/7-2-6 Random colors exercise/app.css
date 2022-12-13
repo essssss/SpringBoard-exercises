@@ -1,0 +1,25 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(35, 35, 35);
+}
+
+h1{
+    font-family: Montserrat;
+    font-size: 15rem;
+}
+
+.letter {
+    transition: color 1000ms;
+} */
+
+.section-title {
+    color: chartreuse;
+    background-color: palevioletred;
+}
+
+.big {
+    font-size: 8rem;
+}
