@@ -44,6 +44,12 @@ friendList.addEventListener('click', function(e){
     if(e.target.tagName === 'BUTTON'){
         e.target.parentElement.remove();
     }
+    else if(e.target.tagName === 'LI'){
+        // e.target.classList.toggle('best-friend');
+        const addHeart = document.createElement('span');
+        addHeart.innerHTML = "&hearts;";
+        e.target.prepend(addHeart);
+    }
 })
 
 
