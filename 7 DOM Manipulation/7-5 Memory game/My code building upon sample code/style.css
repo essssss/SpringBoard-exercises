@@ -1,0 +1,27 @@
+#game div {
+  border: 1px solid black;
+  width: 15%;
+  height: 200px;
+  margin: 10px;
+  display: inline-block;
+}
+
+div .green.visible {
+  background-color: green;
+}
+
+div .red.visible {
+  background-color: red;
+}
+
+div.blue.visible {
+  background-color: blue;
+}
+
+div.purple.visible {
+  background-color: purple;
+}
+
+div.orange.visible {
+  background-color: orange;
+}
