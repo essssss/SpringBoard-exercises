@@ -98,11 +98,7 @@ function handleCardClick(event) {
           clickCounter = 0;
           completionCounter++;
           if (completionCounter === 5) {
-            completionCounter = 0;
-            alert("YOU WIN!");
-            gameContainer.textContent = "";
-            shuffle(COLORS);
-            setTimeout(createDivsForColors(shuffledColors), 5000);
+            winCondition();
           }
         } else {
           console.log("you just clicked", event.target.className);
@@ -123,6 +119,7 @@ function resetCards() {
     cooldown = false;
   }
 }
+const win = document.getElementById("win");
 resetButton.addEventListener("click", resetGame);
 function resetGame() {
   gameContainer.textContent = "";
@@ -130,11 +127,15 @@ function resetGame() {
   completionCounter = 0;
   shuffle(COLORS);
   createDivsForColors(shuffledColors);
+  win.style.display = "none";
+}
+
+function winCondition() {
+  win.style.display = "block";
 }
 
 // when the DOM loads
 createDivsForColors(shuffledColors);
 
-//Still to do
-//- reset button
-//-make look nice (optional)
+const winButton = document.getElementById("newGame");
+winButton.addEventListener("click", resetGame);
