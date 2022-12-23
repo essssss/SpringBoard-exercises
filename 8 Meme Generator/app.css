@@ -1,0 +1,54 @@
+/* List of colors to use
+background - #ECF3E2
+bright blue accent - #094D92
+bright brick red accent - #BF4E4A
+
+Design of page-
+inputs at top, in three rows
+output large and central underneath inputs
+previous memes maybe in a carousel thing underneath? smaller?
+delete button somewhere-maybe only on main image?
+swap smaller images into main frame for viewing?
+*/
+
+body {
+  background-color: #ecf3e2;
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  border: 2px solid #bf4e4a;
+  margin: 25 auto;
+  padding: 15px;
+  /* padding-right: 15px; */
+  border-radius: 5px;
+  font-family: "Monoton", cursive;
+  font-size: 50px;
+  text-align: center;
+  color: #bf4e4a;
+  font-weight: 400;
+}
+
+#inputs {
+  display: flex;
+  justify-content: center;
+}
+#inputs div {
+  color: #bf4e4a;
+  font-family: "Monoton", cursive;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 15px;
+  flex: 1 1 auto;
+}
+label {
+  margin: 0px 15px;
+  width: 100px;
+}
+#button {
+  color: #bf4e4a;
+  font-family: "Monoton", cursive;
+  justify-content: center;
+}
