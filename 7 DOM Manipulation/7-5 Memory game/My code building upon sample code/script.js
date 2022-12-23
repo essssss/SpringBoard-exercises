@@ -1,5 +1,5 @@
 const gameContainer = document.getElementById("game");
-
+const resetButton = document.getElementById("reset");
 const COLORS = [
   "red",
   "blue",
@@ -100,6 +100,8 @@ function handleCardClick(event) {
           if (completionCounter === 5) {
             completionCounter = 0;
             alert("YOU WIN!");
+            gameContainer.textContent = "";
+            shuffle(COLORS);
             setTimeout(createDivsForColors(shuffledColors), 5000);
           }
         } else {
@@ -120,6 +122,14 @@ function resetCards() {
     clickCounter = 0;
     cooldown = false;
   }
+}
+resetButton.addEventListener("click", resetGame);
+function resetGame() {
+  gameContainer.textContent = "";
+  clickCounter = 0;
+  completionCounter = 0;
+  shuffle(COLORS);
+  createDivsForColors(shuffledColors);
 }
 
 // when the DOM loads
