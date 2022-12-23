@@ -25,3 +25,22 @@ div.purple.visible {
 div.orange.visible {
   background-color: orange;
 }
+div .green.completed {
+  background-color: green;
+}
+
+div .red.completed {
+  background-color: red;
+}
+
+div.blue.completed {
+  background-color: blue;
+}
+
+div.purple.completed {
+  background-color: purple;
+}
+
+div.orange.completed {
+  background-color: orange;
+}

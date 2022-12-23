@@ -10,7 +10,7 @@ const COLORS = [
   "blue",
   "green",
   "orange",
-  "purple"
+  "purple",
 ];
 
 // here is a helper function to shuffle an array
@@ -42,7 +42,6 @@ let shuffledColors = shuffle(COLORS);
 // it creates a new div and gives it a class with the value of the color
 // it also adds an event listener for a click for each card
 function createDivsForColors(colorArray) {
-  
   for (let color of colorArray) {
     // create a new div
     const newDiv = document.createElement("div");
@@ -59,44 +58,73 @@ function createDivsForColors(colorArray) {
 }
 //create a global click counter
 let clickCounter = 0;
+//create a global completion counter
+let completionCounter = 0;
+//set a cooldown on click
+let cooldown = false;
+//set general variables
 let firstCard;
+let firstCardClicked;
 let secondCard;
-// TODO: Implement this function!
+let secondCardClicked;
+
 function handleCardClick(event) {
-
-
-  if (clickCounter === 0) {
-    console.log("you just clicked", event.target.className);
-    firstCard = event.target.className
-    event.target.classList.add("visible");
-    clickCounter ++;
-  }
-  else if (clickCounter === 1){
-    // if(YOU CLICK THE SAME CARD TWICE){
-
-    // }
-    // else {
-      secondCard = event.target.className;
-      if (firstCard === secondCard){
-        event.target.classList.add("visible");
-        console.log("A MATCH!")
-        clickCounter = 0;
+  if (cooldown) {
+    return;
+  } else {
+    if (clickCounter === 0) {
+      firstCard = event.target;
+      firstCardClicked = firstCard.className;
+      if (firstCard.classList.contains("completed")) {
+        console.log("Pick A Different Box!");
+      } else {
+        console.log("you just clicked", firstCardClicked);
+        firstCard.classList.add("visible");
+        clickCounter++;
       }
-      else{
-      console.log("you just clicked", event.target.className);
-      event.target.classList.add("visible");
-      setTimeout(resetCards, 1000);}
+    } else if (clickCounter === 1) {
+      secondCard = event.target;
+      secondCardClicked = event.target.className;
+
+      if (secondCard.classList.contains("completed")) {
+        console.log("Pick A Different Box!");
+      } else if (secondCard.classList.contains("visible")) {
+        console.log("Pick A Different Box!");
+      } else {
+        if (firstCardClicked === secondCardClicked) {
+          firstCard.classList = firstCardClicked + " completed";
+          secondCard.classList.add("completed");
+          console.log("A MATCH!");
+          clickCounter = 0;
+          completionCounter++;
+          if (completionCounter === 5) {
+            completionCounter = 0;
+            alert("YOU WIN!");
+            setTimeout(createDivsForColors(shuffledColors), 5000);
+          }
+        } else {
+          console.log("you just clicked", event.target.className);
+          event.target.classList.add("visible");
+          cooldown = true;
+          setTimeout(resetCards, 1000);
+        }
+      }
+    }
   }
 }
 
-function resetCards(){
+function resetCards() {
   const visArray = document.querySelectorAll(".visible");
-  for (i of visArray){
-    i.classList.remove("visible")
-    clickCounter = 0
+  for (i of visArray) {
+    i.classList.remove("visible");
+    clickCounter = 0;
+    cooldown = false;
   }
-
 }
 
 // when the DOM loads
 createDivsForColors(shuffledColors);
+
+//Still to do
+//- reset button
+//-make look nice (optional)
