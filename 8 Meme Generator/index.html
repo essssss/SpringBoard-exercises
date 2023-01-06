@@ -17,10 +17,10 @@
     <header><h1>MEME GENERATOR</h1></header>
     <main>
       <div id="inputs">
-        <form>
+        <form id="meme-generator">
           <div id="image">
             <label for="url">Image URL</label>
-            <input type="text" id="url" name="image_url" />
+            <input type="text" id="url" name="imageurl" />
           </div>
 
           <div id="top_text">
@@ -34,10 +34,14 @@
           </div>
 
           <div class="button">
-            <button type="submit">Generate</button>
+            <button id="submitButton">Generate</button>
           </div>
         </form>
       </div>
+      <div id="results">
+        <!-- <img id="memeResult" src="" width="200" height="200" /> -->
+      </div>
     </main>
+    <script src="app.js"></script>
   </body>
 </html>

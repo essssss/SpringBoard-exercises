@@ -30,6 +30,17 @@ h1 {
   color: #bf4e4a;
   font-weight: 400;
 }
+p {
+  font-family: Impact, fantasy;
+  color: white;
+  font-size: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+    -2px -2px 0 #000;
+  height: 1em;
+  text-align: center;
+}
 
 #inputs {
   display: flex;
@@ -51,4 +62,42 @@ label {
   color: #bf4e4a;
   font-family: "Monoton", cursive;
   justify-content: center;
+}
+
+/* THIS IS OUR MEME */
+#memeDiv {
+  display: flex;
+  position: relative;
+  width: 500px;
+  margin: 20px;
+}
+
+#topTextBox {
+  display: block;
+  width: 500px;
+  margin: 0px auto;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+}
+#bottomTextBox {
+  display: block;
+  width: 500px;
+  margin: 0px auto;
+  position: absolute;
+  bottom: 10px;
+  z-index: 1;
+}
+
+#memeIMG {
+  align-items: center;
+  z-index: 0;
+  width: 500px;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
