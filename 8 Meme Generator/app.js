@@ -6,9 +6,9 @@ const results = document.querySelector("#results");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-
   const newMeme = makeMeme(imageURL.value, topText.value, bottomText.value);
   results.appendChild(newMeme);
+  form.reset();
 });
 
 function makeMeme(pic, toptext, bottomtext) {
@@ -30,10 +30,8 @@ function makeMeme(pic, toptext, bottomtext) {
 }
 
 results.addEventListener("click", function (e) {
-  e.target.parentElement.remove();
+  if (e.target.id === "results") {
+  } else {
+    e.target.parentElement.remove();
+  }
 });
-
-// friendList.addEventListener('click', function(e){
-//   if(e.target.tagName === 'BUTTON'){
-//       e.target.parentElement.remove();
-//   }
